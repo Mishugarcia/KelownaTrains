@@ -26,4 +26,8 @@ pipeline{
 
         stage('Production'){
             steps{
-                echo 'Pro
+                echo 'Production'
+            }
+        }
+    }
+}
