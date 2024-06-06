@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Testing'){
         steps{
-            sh 'firebase deploy -P devops-proj-testing --token "testingenv-mishellgarcia"' 
+            sh 'firebase deploy -P testingenv-mishellgarcia --token "$FIREBASE_DEPLOY_TOKEN"' 
             script{
                 try{
                     //Install Selenium webdriver
@@ -49,12 +49,12 @@ pipeline {
                 }           
              }
         steps{
-          sh 'firebase deploy -P devops-proj-staging --token "devops-staging-lab7"'
+          sh 'firebase deploy -P devops-staging-lab7 --token "$FIREBASE_DEPLOY_TOKEN"'
         }
     }
     stage('Production'){
         steps{
-               sh 'firebase deploy -P devops-proj-production-bcfd9 --token "devops-production-lab7"'
+               sh 'firebase deploy -P devops-production-lab7 --token "$FIREBASE_DEPLOY_TOKEN"'
         }
     }
   }
